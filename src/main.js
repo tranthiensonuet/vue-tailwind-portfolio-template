@@ -20,8 +20,8 @@ function getStartingLocale() {
     return savedLanguage
   }
 
-  // Mặc định trả về 'vi'
-  return 'vi'
+  // Mặc định trả về 'en'
+  return 'en'
 }
 
 const app = createApp(App)
@@ -30,7 +30,7 @@ const app = createApp(App)
 const i18n = createI18n({
   legacy: false, // Bắt buộc phải có để dùng Composition API (Vue 3)
   locale: getStartingLocale(), // Ngôn ngữ mặc định
-  fallbackLocale: 'en', // Ngôn ngữ dự phòng nếu 'vi' bị thiếu key
+  fallbackLocale: 'vi', // Ngôn ngữ dự phòng
   messages: {
     vi: viMessages, // Định nghĩa messages cho 'vi'
     en: enMessages, // Định nghĩa messages cho 'en'

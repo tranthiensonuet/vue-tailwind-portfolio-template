@@ -1,4 +1,5 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
+import { customColors } from './src/customs/color'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -18,6 +19,9 @@ export default {
 
         // (Bạn cũng có thể thêm font có chân nếu muốn)
         // 'serif': ['YourSerifFont', ...defaultTheme.fontFamily.serif],
+      },
+      colors: {
+        ...customColors, // color custom
       },
     },
   },

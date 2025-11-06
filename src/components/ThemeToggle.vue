@@ -9,7 +9,7 @@ const { isDarkMode } = storeToRefs(themeStore) // Lấy state (reactive)
 <template>
   <button
     @click="themeStore.toggleTheme"
-    class="p-2 rounded-full transition-colors duration-300 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-100"
+    class="p-2 rounded-full transition-colors duration-300 bg-olive-secondary hover:opacity-50 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-100"
     aria-label="Toggle dark mode"
   >
     <span v-if="isDarkMode">

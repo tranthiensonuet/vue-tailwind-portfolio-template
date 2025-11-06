@@ -1,6 +1,10 @@
 {
   "header": {
-    "home": "Home",
-    "about": "About"
+    "main": "SONTT",
+    "benefit": "Benefits",
+    "specification": "Specifications",
+    "howto": "How-to",
+    "contactUs": "Contact Us",
+    "learnMore": "Learn More"
   }
 }

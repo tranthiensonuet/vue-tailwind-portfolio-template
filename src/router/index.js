@@ -9,13 +9,13 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
-    {
-      path: '/about',
-      name: 'about',
-      // Đây là kỹ thuật "lazy-loading" (tải chậm)
-      // Component chỉ được tải về khi người dùng truy cập route này.
-      component: () => import('@/views/AboutView.vue'),
-    },
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   // Đây là kỹ thuật "lazy-loading" (tải chậm)
+    //   // Component chỉ được tải về khi người dùng truy cập route này.
+    //   component: () => import('@/views/AboutView.vue'),
+    // },
   ],
 })
 
