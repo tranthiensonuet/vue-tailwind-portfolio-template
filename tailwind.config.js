@@ -1,14 +1,25 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  // Bật chế độ dark mode bằng class (thay vì media query)
-  darkMode: 'class',
-
+  darkMode: 'class', // Bật chế độ dark mode bằng class (thay vì media query)
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}', // Quét tất cả file Vue và JS
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        // 'sans' là key cho các font chữ không chân (mặc định)
+        sans: [
+          'Be Vietnam Pro', // font mong muốn
+          ...defaultTheme.fontFamily.sans, // Giữ lại các font dự phòng mặc định nếu như font chính không load được
+        ],
+
+        // (Bạn cũng có thể thêm font có chân nếu muốn)
+        // 'serif': ['YourSerifFont', ...defaultTheme.fontFamily.serif],
+      },
+    },
   },
   plugins: [],
 }
