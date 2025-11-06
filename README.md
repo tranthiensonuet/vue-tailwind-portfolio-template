@@ -1,1 +1,1 @@
-# vue-portfolio-template
+# vue-tailwind-portfolio-template
