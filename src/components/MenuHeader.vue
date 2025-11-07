@@ -1,68 +1,54 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import ThemeToggle from './ThemeToggle.vue'
+import { useI18n } from 'vue-i18n'
 
 // State để quản lý việc Bật/Tắt menu trên mobile
 const isMobileMenuOpen = ref(false)
+
+const { t } = useI18n()
+const itemMenuHeader = computed(() => [
+  {
+    href: '#benefits',
+    text: t('header.benefit'),
+  },
+  {
+    href: '#specifications',
+    text: t('header.specification'),
+  },
+  {
+    href: '#how-to',
+    text: t('header.howTo'),
+  },
+  {
+    href: '#contact-us',
+    text: t('header.contactUs'),
+  },
+])
 </script>
 
 <template>
   <div>
     <header
-      class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-800 transition-colors duration-300 shadow-md rounded-b-lg md:shadow-none md:rounded-none"
+      class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-800 transition-colors duration-300 border-b"
     >
-      <nav class="container mx-auto px-6 h-16 flex justify-between items-center">
-        <a href="#" class="text-3xl font-bold text-black dark:text-white"> Area </a>
+      <nav class="container mx-auto px-6 h-14 flex justify-between items-center">
+        <a href="#" class="text-3xl font-bold text-black dark:text-white">
+          {{ $t('header.main') }}
+        </a>
 
         <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
           <a
-            href="#benefits"
-            class="text-black dark:text-gray-200 hover:text-gray-500 font-medium text-base"
+            v-for="item in itemMenuHeader"
+            :key="item.href"
+            :href="item.href"
+            class="text-black dark:text-gray-200 hover:text-olive-primary font-medium text-sm"
           >
-            {{ $t('header.benefit') }}
-          </a>
-          <a
-            href="#specifications"
-            class="text-black dark:text-gray-200 hover:text-gray-500 font-medium text-base"
-          >
-            {{ $t('header.specification') }}
-          </a>
-          <a
-            href="#how-to"
-            class="text-black dark:text-gray-200 hover:text-gray-500 font-medium text-base"
-          >
-            {{ $t('header.howto') }}
-          </a>
-          <a
-            href="#contact-us"
-            class="text-black dark:text-gray-200 hover:text-gray-500 font-medium text-base"
-          >
-            {{ $t('header.contactUs') }}
+            {{ item.text }}
           </a>
         </div>
 
         <div class="hidden md:flex items-center space-x-2">
-          <a
-            href="#learn-more"
-            class="inline-flex items-center space-x-1 px-5 py-3 rounded-full font-medium text-sm text-white bg-olive-primary hover:bg-opacity-80 group"
-          >
-            <span>{{ $t('header.learnMore') }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-              />
-            </svg>
-          </a>
-
           <ThemeToggle />
         </div>
 
@@ -107,42 +93,27 @@ const isMobileMenuOpen = ref(false)
     >
       <div
         v-if="isMobileMenuOpen"
-        class="fixed top-16 left-0 w-full z-40 p-6 bg-white dark:bg-gray-800 shadow-xl rounded-b-lg md:hidden"
+        class="fixed top-14 left-0 w-full z-40 p-6 bg-white dark:bg-gray-800 shadow-xl rounded-b-lg md:hidden"
       >
         <nav class="flex flex-col space-y-4">
-          <a href="#benefits" @click="isMobileMenuOpen = false" class="block py-2">{{
-            $t('header.benefit')
-          }}</a>
-          <a href="#specifications" @click="isMobileMenuOpen = false" class="block py-2">{{
-            $t('header.specification')
-          }}</a>
-          <a href="#how-to" @click="isMobileMenuOpen = false" class="block py-2">{{
-            $t('header.howto')
-          }}</a>
-          <a href="#contact-us" @click="isMobileMenuOpen = false" class="block py-2">{{
-            $t('header.contactUs')
-          }}</a>
           <a
-            href="#learn-more"
+            v-for="item in itemMenuHeader"
+            :key="item.href"
+            :href="item.href"
             @click="isMobileMenuOpen = false"
-            class="inline-flex justify-center items-center space-x-1 px-5 py-3 rounded-full text-center font-medium text-sm text-white bg-olive-primary hover:bg-opacity-80 group"
+            class="block py-2 text-sm"
           >
-            <span>{{ $t('header.learnMore') }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-              />
-            </svg>
+            {{ item.text }}
           </a>
+
+          <div class="pt-4 mt-2 border-t border-gray-200 dark:border-gray-700">
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-black dark:text-gray-200">
+                {{ $t('header.appearance') }}
+              </span>
+              <ThemeToggle />
+            </div>
+          </div>
         </nav>
       </div>
     </transition>
