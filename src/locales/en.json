@@ -1,10 +1,13 @@
 {
   "header": {
-    "main": "SONTT",
+    "main": "Web",
     "benefit": "Benefits",
     "specification": "Specifications",
     "howTo": "How-to",
     "contactUs": "Contact Us",
     "appearance": "Appearance"
+  },
+  "main": {
+    "everyThing": "Browse everything"
   }
 }
