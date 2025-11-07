@@ -33,7 +33,7 @@ const itemMenuHeader = computed(() => [
       class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-800 transition-colors duration-300 border-b"
     >
       <nav class="container mx-auto px-6 h-14 flex justify-between items-center">
-        <a href="#" class="text-3xl font-bold text-black dark:text-white">
+        <a href="#" class="text-3xl font-bold dark:text-white">
           {{ $t('header.main') }}
         </a>
 
@@ -42,7 +42,7 @@ const itemMenuHeader = computed(() => [
             v-for="item in itemMenuHeader"
             :key="item.href"
             :href="item.href"
-            class="text-black dark:text-gray-200 hover:text-olive-primary font-medium text-sm"
+            class="hover:text-olive-primary font-medium text-sm"
           >
             {{ item.text }}
           </a>
@@ -55,7 +55,7 @@ const itemMenuHeader = computed(() => [
         <div class="md:hidden">
           <button
             @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="p-2 rounded-md text-black dark:text-gray-200"
+            class="p-2 rounded-md"
             aria-label="Toggle mobile menu"
           >
             <svg
@@ -108,7 +108,7 @@ const itemMenuHeader = computed(() => [
 
           <div class="pt-4 mt-2 border-t border-gray-200 dark:border-gray-700">
             <div class="flex justify-between items-center">
-              <span class="text-sm text-black dark:text-gray-200">
+              <span class="text-sm">
                 {{ $t('header.appearance') }}
               </span>
               <ThemeToggle />
