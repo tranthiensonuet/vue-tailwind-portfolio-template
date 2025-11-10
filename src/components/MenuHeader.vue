@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import ThemeToggle from './ThemeToggle.vue'
-import LanguageSwitcher from './LanguageSwitcher.vue'
+// import LanguageSwitcher from './LanguageSwitcher.vue'
 import { useI18n } from 'vue-i18n'
 
 // State để quản lý việc Bật/Tắt menu trên mobile
@@ -51,7 +51,7 @@ const itemMenuHeader = computed(() => [
 
         <div class="hidden md:flex items-center space-x-2">
           <ThemeToggle />
-          <LanguageSwitcher />
+          <!-- <LanguageSwitcher /> -->
         </div>
 
         <div class="md:hidden">
