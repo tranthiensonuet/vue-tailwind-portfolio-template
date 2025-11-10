@@ -8,6 +8,7 @@
     "appearance": "Appearance"
   },
   "main": {
-    "welcome": "Browse everything"
+    "welcome": "Browse everything",
+    "trustedBy": "Trusted by"
   }
 }

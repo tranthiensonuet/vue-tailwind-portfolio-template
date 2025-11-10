@@ -1,4 +1,58 @@
-<script setup></script>
+<script setup>
+import { useThemeStore } from '@/stores/theme'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+
+// import ảnh
+import logo1Light from '@/img/logoipsum-1.png'
+import logo1Dark from '@/img/logoipsum-1-white.png'
+import logo2Light from '@/img/logoipsum-2.png'
+import logo2Dark from '@/img/logoipsum-2-white.png'
+import logo3Light from '@/img/logoipsum-3.png'
+import logo3Dark from '@/img/logoipsum-3-white.png'
+import logo4Light from '@/img/logoipsum-4.png'
+import logo4Dark from '@/img/logoipsum-4-white.png'
+import logo5Light from '@/img/logoipsum-5.png'
+import logo5Dark from '@/img/logoipsum-5-white.png'
+import logo6Light from '@/img/logoipsum-6.png'
+import logo6Dark from '@/img/logoipsum-6-white.png'
+
+const themeStore = useThemeStore()
+const { isDarkMode } = storeToRefs(themeStore)
+
+const trustedByDatas = computed(() => [
+  {
+    srcImg: logo1Light,
+    srcImgDark: logo1Dark,
+    altImg: 'Logo 1',
+  },
+  {
+    srcImg: logo2Light,
+    srcImgDark: logo2Dark,
+    altImg: 'Logo 2',
+  },
+  {
+    srcImg: logo3Light,
+    srcImgDark: logo3Dark,
+    altImg: 'Logo 3',
+  },
+  {
+    srcImg: logo4Light,
+    srcImgDark: logo4Dark,
+    altImg: 'Logo 4',
+  },
+  {
+    srcImg: logo5Light,
+    srcImgDark: logo5Dark,
+    altImg: 'Logo 5',
+  },
+  {
+    srcImg: logo6Light,
+    srcImgDark: logo6Dark,
+    altImg: 'Logo 6',
+  },
+])
+</script>
 
 <template>
   <section class="relative">
@@ -14,60 +68,30 @@
           <picture>
             <source srcset="@/img/banner.png" media="(min-width: 1024px)" />
             <source srcset="@/img/banner-ipad.png" media="(min-width: 768px)" />
-            <img src="@/img/banner-phone.png" alt="Dashboard Mockup" class="object-cover w-full" />
+            <img src="@/img/banner-phone.png" alt="Banner" class="object-cover w-full" />
           </picture>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-16">
+  <section class="py-10">
     <div class="container mx-auto px-6">
-      <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 text-left mb-6">
-        Trusted by:
-      </h3>
-
+      <h3 class="text-sm font-medium text-left mb-6">{{ $t('main.trustedBy') }}:</h3>
       <div class="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
-        <div class="flex justify-center">
+        <div v-for="logo in trustedByDatas" :key="logo.altImg" class="flex justify-center">
           <img
-            src="https://via.placeholder.com/150x40.png?text=Logoipsum"
-            alt="Logo 1"
-            class="h-8 filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all"
+            v-if="isDarkMode"
+            :src="logo.srcImgDark"
+            :alt="logo.altImg"
+            class="h-6 md:h-8 transition-opacity"
           />
-        </div>
-        <div class="flex justify-center">
+
           <img
-            src="https://via.placeholder.com/150x40.png?text=Logoipsum"
-            alt="Logo 2"
-            class="h-8 filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all"
-          />
-        </div>
-        <div class="flex justify-center">
-          <img
-            src="https://via.placeholder.com/150x40.png?text=Logoipsum"
-            alt="Logo 3"
-            class="h-8 filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all"
-          />
-        </div>
-        <div class="flex justify-center">
-          <img
-            src="https://via.placeholder.com/150x40.png?text=Logoipsum"
-            alt="Logo 4"
-            class="h-8 filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all"
-          />
-        </div>
-        <div class="flex justify-center">
-          <img
-            src="https://via.placeholder.com/150x40.png?text=Logoipsum"
-            alt="Logo 5"
-            class="h-8 filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all"
-          />
-        </div>
-        <div class="flex justify-center">
-          <img
-            src="https://via.placeholder.com/150x40.png?text=Logoipsum"
-            alt="Logo 6"
-            class="h-8 filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all"
+            v-else
+            :src="logo.srcImg"
+            :alt="logo.altImg"
+            class="h-6 md:h-8 filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all"
           />
         </div>
       </div>
