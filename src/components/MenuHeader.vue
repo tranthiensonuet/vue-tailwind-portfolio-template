@@ -33,7 +33,7 @@ const itemMenuHeader = computed(() => [
     <header
       class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-800 transition-colors duration-300 border-b"
     >
-      <nav class="container mx-auto px-6 h-14 flex justify-between items-center">
+      <nav class="container mx-auto px-4 md:px-10 h-14 flex justify-between items-center">
         <a href="#" class="text-3xl font-bold dark:text-white">
           {{ $t('header.main') }}
         </a>
@@ -57,7 +57,7 @@ const itemMenuHeader = computed(() => [
         <div class="md:hidden">
           <button
             @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="p-2 rounded-md"
+            class="py-2 rounded-md"
             aria-label="Toggle mobile menu"
           >
             <svg

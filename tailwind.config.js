@@ -16,9 +16,8 @@ export default {
           'Be Vietnam Pro', // font mong muốn
           ...defaultTheme.fontFamily.sans, // Giữ lại các font dự phòng mặc định nếu như font chính không load được
         ],
-
-        // (Bạn cũng có thể thêm font có chân nếu muốn)
-        // 'serif': ['YourSerifFont', ...defaultTheme.fontFamily.serif],
+        // một số font riêng
+        heading: ['Roboto Mono', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         ...customColors, // color custom

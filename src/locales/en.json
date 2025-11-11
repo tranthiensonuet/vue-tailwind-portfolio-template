@@ -10,5 +10,18 @@
   "main": {
     "welcome": "Browse everything",
     "trustedBy": "Trusted by"
+  },
+  "benefit": {
+    "title": "Benefits",
+    "content": "We've cracked the code.",
+    "note": "Area provides real insights, without the data overload.",
+    "titleBenefit1": "Amplify Insights",
+    "titleBenefit2": "Control Your Global Presence",
+    "titleBenefit3": "Remove Language Barriers",
+    "titleBenefit4": "Visualize Growth",
+    "contentBenefit1": "Unlock data-driven decisions with comprehensive analytics, revealing key opportunities for strategic regional growth.",
+    "contentBenefit2": "Manage and track satellite offices, ensuring consistent performance and streamlined operations everywhere.",
+    "contentBenefit3": "Adapt to diverse markets with built-in localization for clear communication and enhanced user experience.",
+    "contentBenefit4": "Generate precise, visually compelling reports that illustrate your growth trajectories across all regions."
   }
 }
