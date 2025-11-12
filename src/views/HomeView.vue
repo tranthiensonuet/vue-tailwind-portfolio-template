@@ -4,6 +4,9 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+// component
+import BaseCardInformation from '@/components/BaseCardInformation.vue'
+
 // import ảnh
 import logo1Light from '@/img/logoipsum-1.png'
 import logo1Dark from '@/img/logoipsum-1-white.png'
@@ -18,10 +21,13 @@ import logo5Dark from '@/img/logoipsum-5-white.png'
 import logo6Light from '@/img/logoipsum-6.png'
 import logo6Dark from '@/img/logoipsum-6-white.png'
 
+// get theme
 const themeStore = useThemeStore()
 const { isDarkMode } = storeToRefs(themeStore)
 
+// use i18n
 const { t } = useI18n()
+
 const trustedByDatas = computed(() => [
   {
     srcImg: logo1Light,
@@ -91,9 +97,9 @@ const benefitDatas = computed(() => [
         >
           {{ $t('main.welcome') }}
         </h1>
-        <div class="mx-auto max-w-xl md:max-w-3xl xl:max-w-5xl">
+        <div class="mx-auto max-w-xl md:max-w-2xl xl:max-w-5xl">
           <picture>
-            <source srcset="@/img/banner.png" media="(min-width: 1024px)" />
+            <source srcset="@/img/banner.png" media="(min-width: 1280px)" />
             <source srcset="@/img/banner-ipad.png" media="(min-width: 768px)" />
             <img src="@/img/banner-phone.png" alt="Banner" class="object-cover w-full" />
           </picture>
@@ -139,15 +145,20 @@ const benefitDatas = computed(() => [
 
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-12">
         <div v-for="benefit in benefitDatas" :key="benefit.title">
-          <div class="mb-5" v-html="benefit.icon"></div>
-
-          <h3 class="text-xl font-bold font-heading mb-3">
-            {{ benefit.title }}
-          </h3>
-          <p class="font-sans text-sm leading-relaxed">
-            {{ benefit.description }}
-          </p>
+          <BaseCardInformation
+            :icon="benefit.icon"
+            :title="benefit.title"
+            :description="benefit.description"
+          ></BaseCardInformation>
         </div>
+      </div>
+
+      <div class="mt-20">
+        <picture>
+          <source srcset="@/img/benefit-banner.png" media="(min-width: 1280px)" />
+          <source srcset="@/img/benefit-banner-ipad.png" media="(min-width: 768px)" />
+          <img src="@/img/benefit-banner-phone.png" alt="Banner" class="object-cover w-full" />
+        </picture>
       </div>
     </div>
   </section>
