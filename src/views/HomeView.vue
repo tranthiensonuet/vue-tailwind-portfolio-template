@@ -83,6 +83,25 @@ const benefitDatas = computed(() => [
     description: t('benefit.contentBenefit4'),
   },
 ])
+
+const featureList = computed(() => [
+  {
+    id: '01',
+    text: t('benefit.contentSeePicture1'),
+  },
+  {
+    id: '02',
+    text: t('benefit.contentSeePicture2'),
+  },
+  {
+    id: '03',
+    text: t('benefit.contentSeePicture3'),
+  },
+  {
+    id: '04',
+    text: t('benefit.contentSeePicture4'),
+  },
+])
 </script>
 
 <template>
@@ -132,7 +151,7 @@ const benefitDatas = computed(() => [
   </section>
 
   <section id="benefits" class="container mx-auto px-4 md:px-10">
-    <div class="py-8 border-b">
+    <div class="py-8">
       <div class="max-w-3xl mb-16">
         <h2 class="text-sm text-olive-primary font-heading">{{ $t('benefit.title') }}</h2>
         <h2 class="text-4xl md:text-6xl font-medium my-6 md:my-10 xl:my-16">
@@ -159,6 +178,53 @@ const benefitDatas = computed(() => [
           <source srcset="@/img/benefit-banner-ipad.png" media="(min-width: 768px)" />
           <img src="@/img/benefit-banner-phone.png" alt="Banner" class="object-cover w-full" />
         </picture>
+      </div>
+    </div>
+
+    <div class="py-8">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="w-full lg:w-1/2">
+          <h2 class="text-4xl md:text-5xl mb-6">{{ $t('benefit.seePicture') }}</h2>
+          <p class="text-lg text-gray-500 dark:text-gray-100 mb-10 max-w-lg">
+            {{ $t('benefit.seePictureNote') }}
+          </p>
+
+          <div class="space-y-0">
+            <div
+              v-for="item in featureList"
+              :key="item.id"
+              class="flex items-start gap-6 py-6 border-t"
+            >
+              <span class="font-medium text-sm mt-1">
+                {{ item.id }}
+              </span>
+
+              <p class="font-medium leading-relaxed">
+                {{ item.text }}
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a
+              href="#discover"
+              class="inline-block px-8 py-3 rounded-full font-bold text-gray-900 transition-transform hover:-translate-y-1"
+              style="background-color: #e3ebc3"
+            >
+              Discover More
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/2">
+          <div class="relative rounded-[2.5rem] overflow-hidden shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+              alt="Abstract 3D shapes"
+              class="w-full h-[500px] object-cover"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </section>
